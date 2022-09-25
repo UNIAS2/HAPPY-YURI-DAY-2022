@@ -1,10 +1,69 @@
 <!DOCTYPE html>
 <head>
     <title>HAPPY YURI DAY 2022 - FROM JOYURI GALLERY</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 </head>
 <body>
-    <img src="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/test1.png?raw=true" style="max-width:100%; height:auto; margin-top: -5px; margin-bottom: -4px">
-    <a href="https://unias2.github.io/HAPPY-YURI-DAY-2022/Music1.html" target="_blank"><img src="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/Music_00001.png?raw=true" style="max-width:100%; height:auto; margin-top: -0px; margin-bottom: -4px"></a>
-    <a href="https://unias2.github.io/HAPPY-YURI-DAY-2022/Music2.html" target="_blank"><img src="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/Music_00002.png?raw=true" style="max-width:100%; height:auto; margin-top: -0px; margin-bottom: -4px"></a>
-    <a href="https://unias2.github.io/HAPPY-YURI-DAY-2022/Music3.html" target="_blank"><img src="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/Music_00003.png?raw=true" style="max-width:100%; height:auto; margin-top: -0px; margin-bottom: -4px"></a>
-</body>
+    <!--Main Image Area-->
+        <img src="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/test1.png?raw=true"
+             style="max-width:100%; height:auto; margin-top: -5px; margin-bottom: -4px">
+
+    <!--LOVE Shhh! Audio banner-->
+    <div class="AR" data-audio="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/loveshhh.mp3?raw=true"><img src="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/Music_00001.png?raw=true"  style="max-width:100%; height:auto; margin-top: -0px; margin-bottom: -4px"></div>
+     </div>
+
+    <!--MAYBE Audio banner-->
+    <div class="AR" data-audio="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/maybe.mp3?raw=true"><img src="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/Music_00002.png?raw=true"  style="max-width:100%; height:auto; margin-top: -0px; margin-bottom: -4px"></div>
+    </div>
+    
+     <!--DYFMH Audio banner-->
+     <div class="AR" data-audio="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/Dyfmh.mp3?raw=true"><img src="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/Music_00003.png?raw=true"  style="max-width:100%; height:auto; margin-top: -0px; margin-bottom: -4px"></div>
+
+     <!--Audio Controler-->
+        <script>$('.AR')
+            .each(function() {
+              
+              /*
+              For each .AR element, preload and instantiate
+              an audio object. Associate the audio instance
+              with this element (via "audio-object" data key)
+              */
+              $(this).data('audio-object', new Audio());
+              
+            })
+            .on('click', function (e) {
+              
+              /*
+              When .AR element is clicked, iterate all .AR
+              elements, and pause/reset the associated audio 
+              instances (if audio has src attribute).
+              This has the effect of "stopping all audio" for
+              .AR elements on the page
+              */
+              $('.AR').each(function() {
+                var audio = $(this).data('audio-object');
+            
+                if(audio.src) {
+                  audio.pause();
+                  audio.currentTime = 0;
+                }
+              });
+              
+              /*
+              Now that all audio objects for .AR elements 
+              have stopped playing, start playing the actual
+              audio object for the .AR element that was clicked.
+            
+              If the audio object has no src attribute, assign
+              to load this audio object instance.
+              
+              */
+              var clickedAudio = $(this).data('audio-object');
+            
+              if(!clickedAudio.src) {
+                clickedAudio.src = $(this).data('audio');
+              }
+            
+              clickedAudio.play();
+              audio.volume=0.2;
+            });</script>
