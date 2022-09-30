@@ -12,6 +12,50 @@
 
         <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        <script>
+            function printName()
+            {
+            const name = document.getElementById('name').value;
+            document.getElementById("result").innerText = name;
+            }
+            
+        </script>
+        <style>
+            html { font-size:10px }
+        </style>
     </head>
 
     <body>
+
+          <input id='name' placeholder="이름"onkeyup='printName()'/>
+
+        <div class="user-wrap">
+            <div class="user-image">
+                <img src="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/photocard.png?raw=true" alt="" />
+            </div>
+            <div class="user-text">
+                <p><div id='result'></div></p>
+            </div>
+        </div>
+        <style>
+        .user-wrap {
+            width: 100%;
+            margin: 10px auto;
+            position: relative;
+        }
+        .user-wrap img {
+            width: 100%;
+            vertical-align: middle;
+        }
+        .user-text {
+            position: absolute;
+            top:3.1%;
+            left: 24%;
+            width: 100%;
+            transform: translate( -50%, -50% );
+            font-size: 5rem;
+            font-family: 'serif';
+            text-align:center;
+        }
+    </style>
+</html>
