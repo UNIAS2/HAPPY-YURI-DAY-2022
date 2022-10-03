@@ -8,14 +8,22 @@
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=3bkmbieiql"></script>
 </head>
 <body>
-<div id="map" style="width:100%;height:400px;"></div>
+<div id="map" style="width:500px;height:400px;"></div>
 
 <script>
+    // 초기 위치 설정
 var mapOptions = {
     center: new naver.maps.LatLng(37.3595704, 127.105399),
     zoom: 10
 };
+    // 가게 마커 설정
 
+var markerOptions = {
+    position: new naver.maps.LatLng(37.3595704, 127.105399),
+    map: map
+};
+
+var marker = new naver.maps.Marker(markerOptions);
 var map = new naver.maps.Map('map', mapOptions);
 </script>
 </body>
