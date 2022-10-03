@@ -1,37 +1,53 @@
+
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
-    <title>간단한 지도 표시하기</title>
+    <title>GLASS TO MEET YOU - HOW TO COME</title>
     <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=3bkmbieiql"></script>
 
 </head>
+
+
 <body>
     <style>
-        body { background-image: url('https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/BACKGROUND-MAP.png?raw=true'); }
+        body { background-image: url('./BACKGROUND-MAP.png'); }
         p { color: red; text-decoration: underline; }
     </style>
 
-<img src="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/TEXT1-MAP.png?raw=true" style="max-width:100%; height:auto;">
-<div id="map" style="width:400px;height:300px;float: right; margin-top: -20px;"></div>
+<img src="./TEXT1-MAP.png" style="max-width:100%; height:auto;">
+<div id="map" style="width:500px;height:300px;float: right; margin-top: -20px;"></div>
 
 <script>
-    // 초기 위치 설정
-    var map = new naver.maps.Map('map', {
-    center: new naver.maps.LatLng(37.5587667, 126.9269311),
+var position = new naver.maps.LatLng(37.5587667, 126.9269311);
+
+var map = new naver.maps.Map('map', {
+    center: position,
     zoom: 17
 });
 
-var marker = new naver.maps.Marker({
-    position: new naver.maps.LatLng(37.5587667, 126.9269311),
-    map: map
+var markerOptions = {
+    position: position,
+    map: map,
+    icon: {
+        url: 'https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/1f436.png?raw=true',
+        size: new naver.maps.Size(64, 64),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(30, 35)
+        
+    }
+};
+
+var marker = new naver.maps.Marker(markerOptions);
+
+window.addEventListener('DOMContentLoaded', function(){
+    resize();
+    window.addEventListener('resize', resize);
 });
-
-
 
 var map = new naver.maps.Map('map', mapOptions);
 </script>
 </body>
-</html>
+</html>-->
