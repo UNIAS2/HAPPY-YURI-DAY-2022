@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>GLASS TO MEET YOU - HOW TO COME</title>
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=3bkmbieiql"></script>
+
+</head>
+
+
+<body>
+    <style>
+        body { background-image: url('./BACKGROUND-MAP.png'); }
+        p { color: red; text-decoration: underline; }
+    </style>
+
+<img src="./TEXT1-MAP.png" style="max-width:100%; height:auto;">
+<div id="map" style="width:500px;height:300px;float: right; margin-top: -20px;"></div>
+
+<script>
+var position = new naver.maps.LatLng(35.1537, 129.9601);
+
+var map = new naver.maps.Map('map', {
+    center: position,
+    zoom: 17
+});
+
+var markerOptions = {
+    position: position,
+    map: map,
+    icon: {
+        url: 'https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/1f436.png?raw=true',
+        size: new naver.maps.Size(64, 64),
+        origin: new naver.maps.Point(0, 0),
+        anchor: new naver.maps.Point(30, 35)
+        
+    }
+};
+
+var marker = new naver.maps.Marker(markerOptions);
+
+window.addEventListener('DOMContentLoaded', function(){
+    resize();
+    window.addEventListener('resize', resize);
+});
+
+var map = new naver.maps.Map('map', mapOptions);
+</script>
+    <br>
+<br>
+<br>
+<br>
+
+</body>
+</html>-->
