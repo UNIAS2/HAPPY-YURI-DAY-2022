@@ -1,62 +1,95 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>HAPPY YURI DAY - PHOTO CARD</title>
-        <!--Bootstrap Include-->
-        <scirpt src="https://code.jquery.com/jquery-3.3.1.js"></script> 
-        <!-- 합쳐지고 최소화된 최신 CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-        <!-- 부가적인 테마 -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-
-        <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-          <link rel="icon" href="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/305503802_612183003647748_9010310892724976072_n.jpg?raw=true">
-        <script>
-            function printName()
-            {
-            const name = document.getElementById('name').value;
-            document.getElementById("result").innerText = name;
-            }
-            
-        </script>
-        <style>
-            html { font-size:5px }
-        </style>
-    </head>
-
-    <body>
-
-          <input id='name' placeholder="이름"onkeyup='printName()'/>
-
-        <div class="user-wrap">
-            <div class="user-image">
-                <img src="https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/photocard.png?raw=true" alt="" />
-            </div>
-            <div class="user-text">
-                <p><div id='result'></div></p>
-            </div>
-        </div>
-        <style>
-        .user-wrap {
+<head>
+    <!-- style for reactive canvas size 
+    <style>
+        html,body {
             width: 100%;
-            margin: 10px auto;
-            position: relative;
+            margin: 0;
         }
-        .user-wrap img {
+        canvas:not(.vis) {
+            display: block;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             width: 100%;
-            vertical-align: middle;
         }
-        .user-text {
-            position: absolute;
-            top:3.1%;
-            left: 24%;
-            width: 100%;
-            transform: translate( -50%, -50% );
-            font-size: 5rem;
-            font-family: 'serif';
-            text-align:center;
+    </style>-->
+
+<body>
+    <!-- start of Preview TEXT script-->
+    <canvas class="vis" id="textCanvas" height="0"></canvas>
+<img id="image" style="width:0">
+    <!--  of Preview TEXT script-->
+<br>
+<textarea id="text"></textarea><button id="button" onclick="reload">입력</button>
+<script>
+            var reload = 0;
+</script>
+<script>
+
+    function reload(){
+    if(reload==0){
+        reload++
+    }else if(reload==1){
+        Location.reload()
+    }}
+</script>
+
+    <script type="text/javascript">
+        
+                function draw1(){
+
+        var tCtx = document.getElementById('c').getContext('2d'), //Hidden canvas
+    imageElem = document.getElementById('image'); //Image element
+  
+// Text input element
+document.getElementById('button').addEventListener('click', (event)=> {
+    var t1 = document.getElementById('text');
+
+  tCtx.font = "30px Arial";
+
+  tCtx.fillText(t1.value, 140, 65);
+  imageElem.src = tCtx.canvas.toDataURL();
+  console.log(imageElem.src);
+}, false);
+
+       
+
+
+            //MAKE IMAGE OBJECT
+            var img = new Image();
+            var currenttext = new Image();
+ 
+            //IMAGE OUTPUT AFTER IMAGE LOADED
+            img.addEventListener('load', function(){
+                //OUTPUT TO CANVAS LOADED IMAGE
+                var ctx = document.getElementById('c').getContext("2d");
+
+ 
+                //canvas.drawImage() for OUTPUT IMAGEz
+                ctx.drawImage(img , 0, 0);
+
+           
+            },false);
+ 
+            //SET IMAGE LOCATION
+            img.src="./outsidephotocard.png";
+            currenttext.src=""
+       
         }
-    </style>
-</html>
+    </script>
+</head>
+<body>
+<br>
+
+
+
+<body onload="draw1();">
+    잘못 입력하시면 페이지를 새로고침하고 다시 입력해주세요<br>
+    <canvas id="c" width="714" height="1237"></canvas>
+
+
+</body>
+ 
