@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+</style>
     <!-- style for reactive canvas size 
     <style>
         html,body {
@@ -23,19 +26,7 @@
 <img id="image" style="width:0">
     <!--  of Preview TEXT script-->
 <br>
-<textarea id="text"></textarea><button id="button" onclick="reload">입력</button>
-<script>
-            var reload = 0;
-</script>
-<script>
-
-    function reload(){
-    if(reload==0){
-        reload++
-    }else if(reload==1){
-        Location.reload()
-    }}
-</script>
+<textarea id="text"></textarea><button id="button">입력</button>
 
     <script type="text/javascript">
         
@@ -48,7 +39,7 @@
 document.getElementById('button').addEventListener('click', (event)=> {
     var t1 = document.getElementById('text');
 
-  tCtx.font = "30px Arial";
+  tCtx.font = "30px jejumyeongjo";
 
   tCtx.fillText(t1.value, 140, 65);
   imageElem.src = tCtx.canvas.toDataURL();
