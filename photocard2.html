@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+</style>
     <!-- style for reactive canvas size 
     <style>
         html,body {
@@ -48,7 +51,7 @@
 document.getElementById('button').addEventListener('click', (event)=> {
     var t1 = document.getElementById('text');
 
-  tCtx.font = "30px Arial";
+  tCtx.font = "30px jejumyeongjo";
 
   tCtx.fillText(t1.value, 140, 65);
   imageElem.src = tCtx.canvas.toDataURL();
