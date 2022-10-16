@@ -66,7 +66,24 @@
     <script type="text/javascript">
         
                 function draw1(){
+                var testUrl = "https://github.com/UNIAS2/HAPPY-YURI-DAY-2022/blob/main/insidephotocard.png?raw=true"
 
+const getBase64FromUrl = async (url) => {
+  const data = await fetch(url);
+  const blob = await data.blob();
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(blob); 
+    reader.onloadend = function() {
+      const base64data = reader.result;   
+      resolve(base64data);
+    }
+  });
+}
+
+getBase64FromUrl(testUrl).then(a => {
+  console.log(a);
+});
         var tCtx = document.getElementById('c').getContext('2d'), //Hidden canvas
     imageElem = document.getElementById('image'); //Image element
   
@@ -101,7 +118,7 @@ document.getElementById('button').addEventListener('click', (event)=> {
             },false);
  
             //SET IMAGE LOCATION
-            img.src="insidephotocard.png" crossorigin;
+            img.src=testUrl;
        
         }
     </script>
